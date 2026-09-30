@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Canva Activity: Create a Travel Brochure</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EEF6F5;--card:#fff;--ink:#12292E;--mute:#4D6468;--teal:#0F5C66;--sun:#F4B942;--coral:#D9543B;--ok:#1E7B4F;--line:#C9DDDB;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0D1C1F;--card:#152A2E;--ink:#E6F1F0;--mute:#9DB6B8;--teal:#5FC1CC;--sun:#F4B942;--coral:#F08770;--ok:#5BC98E;--line:#28464B}}
+:root[data-theme="dark"]{--bg:#0D1C1F;--card:#152A2E;--ink:#E6F1F0;--mute:#9DB6B8;--teal:#5FC1CC;--sun:#F4B942;--coral:#F08770;--ok:#5BC98E;--line:#28464B}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "Nunito Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Nunito Sans",sans-serif;line-height:1.15;margin:0}
+main{max-width:920px;margin:0 auto;padding:0 18px 60px}
+header{padding:44px 0 26px}
+header h1{font-size:clamp(2rem,6vw,3.4rem);font-weight:800;color:var(--teal)}
+header p{max-width:60ch;color:var(--mute);margin:12px 0 0}
+section{margin-top:38px}
+h2{font-size:1.6rem;margin-bottom:6px}
+.sub{color:var(--mute);margin:0 0 16px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.card h3{font-size:1.1rem;margin-bottom:4px}
+.card p{margin:0;color:var(--mute);font-size:.95rem}
+ol.steps{padding:0;margin:0;list-style:none;display:grid;gap:8px}
+ol.steps label{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer}
+input[type=checkbox]{width:22px;height:22px;accent-color:var(--teal);flex:none;margin-top:2px}
+ol.steps input:checked+span{text-decoration:line-through;color:var(--mute)}
+.q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px}
+.q p{margin:0 0 10px;font-weight:600}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+button{font:inherit;cursor:pointer}
+.opt{border:2px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:6px 16px}
+.opt:hover{border-color:var(--teal)}
+.opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 18%,transparent)}
+.opt.wrong{border-color:var(--coral);background:color-mix(in srgb,var(--coral) 16%,transparent)}
+.fb{margin-top:8px;font-size:.92rem;color:var(--mute);min-height:1.4em}
+.score{font-weight:700;color:var(--teal)}
+.planner{display:grid;gap:22px;grid-template-columns:1fr}
+@media(min-width:820px){.planner{grid-template-columns:1fr 1fr;align-items:start}.preview{position:sticky;top:16px}}
+.field{display:block;margin-bottom:12px;font-weight:600;font-size:.95rem}
+input[type=text],textarea{width:100%;font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 11px;margin-top:4px}
+input[type=text]:focus,textarea:focus,button:focus-visible,input[type=checkbox]:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+textarea{min-height:64px;resize:vertical}
+.hint{font-weight:400;color:var(--mute);font-size:.85rem}
+.tag{display:inline-block;font-size:.8rem;font-weight:700;border-radius:999px;padding:1px 10px;margin-left:6px}
+.tag.ok{background:color-mix(in srgb,var(--ok) 20%,transparent);color:var(--ok)}
+.tag.no{background:color-mix(in srgb,var(--coral) 18%,transparent);color:var(--coral)}
+.preview .card{padding:0;overflow:hidden}
+.pv-top{background:var(--teal);color:#fff;padding:22px 18px}
+.pv-top h3{font-size:1.7rem;color:#fff}
+.pv-top em{display:block;margin-top:4px;color:var(--sun);font-style:normal;font-weight:700}
+.pv-body{padding:16px 18px}
+.pv-body h4{margin:12px 0 4px;font-family:"Bricolage Grotesque",sans-serif}
+.pv-body ul{margin:0;padding-left:20px}
+.pv-body small{color:var(--mute)}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.btn{background:var(--teal);color:var(--bg);border:0;border-radius:10px;padding:10px 18px;font-weight:700}
+.btn.alt{background:transparent;color:var(--teal);border:2px solid var(--teal)}
+.done{margin-top:14px;font-weight:700;color:var(--ok);min-height:1.5em}
+@media print{.actions,.q,ol.steps{display:none}}
+@media (prefers-reduced-motion:no-preference){.opt,.btn{transition:background .15s,border-color .15s}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>Create a Travel Brochure</h1>
+<p>Work in your group to design a Canva brochure about one Indonesian destination. Practise Passive Voice first, then plan your text and check it before you design.</p>
+</header>
+
+<section>
+<h2>Your group</h2>
+<p class="sub">Find your name and share one laptop with your group.</p>
+<div class="grid">
+<div class="card"><h3>Group 1</h3><p>Afza Baidha Rastanura<br>Aisyah Annisa Hanin<br>Almaira Nur Husna<br>Annisa Putri Izzati</p></div>
+<div class="card"><h3>Group 2</h3><p>Arkana Nabila Fitri<br>Deqita Alina Prazetia<br>Fakhira Dzakiyah Ramadhani<br>Isabela Amirawafa Prasetya</p></div>
+<div class="card"><h3>Group 3</h3><p>Maira Hanifah Jasmine<br>Muthmainnah<br>Naeema Azkadina Ristianto<br>Najmi Sekar Putri</p></div>
+<div class="card"><h3>Group 4</h3><p>Nayla Diandra Andrian<br>Nurudzihni Zhafirah<br>Putri Ramadani Maridha<br>Quennisa Haura Hakim</p></div>
+<div class="card"><h3>Group 5</h3><p>Rania Kemala Mecca<br>Shafa Khalila Aqil Amanda<br>Sifia Qonita Az-Zahra</p></div>
+<div class="card"><h3>Group 6</h3><p>Syarifah Maryam Husein<br>Tiara Dewi Pratomo<br>Zara Azalia Putri Raditya</p></div>
+</div>
+</section>
+
+<section>
+<h2>Group roles</h2>
+<p class="sub">Groups of three: combine Canva Designer and Editor &amp; Presenter. Everyone reviews the final work.</p>
+<div class="grid">
+<div class="card"><h3>Researcher</h3><p>Finds key facts and records the information sources.</p></div>
+<div class="card"><h3>English Writer</h3><p>Drafts the text and checks the Passive Voice sentences.</p></div>
+<div class="card"><h3>Canva Designer</h3><p>Chooses a template and arranges text and images.</p></div>
+<div class="card"><h3>Editor &amp; Presenter</h3><p>Checks facts, spelling and readability, then introduces the brochure.</p></div>
+</div>
+</section>
+
+<section>
+<h2>Steps</h2>
+<p class="sub">Tick each step when your group finishes it.</p>
+<ol class="steps" id="steps"></ol>
+</section>
+
+<section>
+<h2>Passive Voice practice</h2>
+<p class="sub">Pattern: subject + <b>be</b> + <b>past participle</b>. Choose the correct form.</p>
+<div id="quiz"></div>
+<p class="score" id="score"></p>
+</section>
+
+<section>
+<h2>Brochure planner</h2>
+<p class="sub">Write your content here before you open Canva. The preview updates as you type.</p>
+<div class="planner">
+<div>
+<label class="field">Destination name<input type="text" id="name" placeholder="e.g. Borobudur Temple"></label>
+<label class="field">Location<input type="text" id="loc" placeholder="e.g. Magelang, Central Java"></label>
+<label class="field">Slogan<input type="text" id="slogan" placeholder="A short, catchy line"></label>
+<label class="field">Short description<textarea id="desc"></textarea></label>
+<label class="field">Fact, attraction or activity 1<input type="text" class="fact"></label>
+<label class="field">Fact, attraction or activity 2<input type="text" class="fact"></label>
+<label class="field">Fact, attraction or activity 3<input type="text" class="fact"></label>
+<label class="field">Passive Voice sentence 1 <span class="tag no" data-p="0">not checked</span><input type="text" class="pas"></label>
+<label class="field">Passive Voice sentence 2 <span class="tag no" data-p="1">not checked</span><input type="text" class="pas"></label>
+<label class="field">Passive Voice sentence 3 <span class="tag no" data-p="2">not checked</span><input type="text" class="pas"></label>
+<label class="field">Information sources <span class="hint">(one per line; do not copy whole paragraphs)</span><textarea id="src"></textarea></label>
+</div>
+<div class="preview">
+<div class="card">
+<div class="pv-top"><h3 id="pName">Your destination</h3><em id="pSlogan">Your slogan</em><div id="pLoc" style="margin-top:6px"></div></div>
+<div class="pv-body">
+<p id="pDesc" style="margin:0"></p>
+<h4>Highlights</h4><ul id="pFacts"></ul>
+<h4>Did you know?</h4><ul id="pPas"></ul>
+<h4>Sources</h4><small id="pSrc"></small>
+</div>
+</div>
+<div class="actions">
+<button class="btn" id="copy">Copy my text</button>
+<button class="btn alt" id="reset">Clear</button>
+</div>
+<div class="done" id="copied"></div>
+</div>
+</div>
+</section>
+
+<section>
+<h2>Before you submit</h2>
+<p class="sub">Items marked by the planner tick themselves. Tick the rest by hand.</p>
+<ol class="steps" id="check"></ol>
+<div class="done" id="ready"></div>
+</section>
+</main>
+
+<script>
+var $=function(s){return document.querySelector(s)},$$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+var STEPS=["Choose one Indonesian tourist destination.","Find and note reliable information. Do not copy whole paragraphs from a website.","Write your title, slogan, location and short description before designing.","Add at least three relevant Passive Voice sentences. Check: subject + be + past participle.","Open Canva and choose a brochure template or a clear one-page layout.","Add your text and suitable images. Keep the text readable and the design not too crowded.","Check facts, spelling, grammar, Passive Voice and sources as a group.","Save your work and submit the Canva link or PDF as instructed."];
+var CHECK=["The destination's name and location are included.","At least three relevant facts, attractions or activities are included.","At least three correct Passive Voice sentences are included.","Pictures match the destination.","The design is neat and easy to read.","Information sources are listed.","Everyone in the group has contributed.","The Canva link or PDF is saved and can be opened."];
+var Q=[
+["The temple ____ in the ninth century.",["built","was built","was build"],1,"Past event: was + past participle (built)."],
+["Guided tours ____ every morning.",["are offered","is offered","are offering"],0,"Plural subject 'tours' takes are + offered."],
+["Traditional food ____ near the beach.",["serve","is served","are served"],1,"'Food' is uncountable, so use is + served."],
+["Many photos ____ by visitors at sunrise.",["are taken","take","is taken"],0,"Plural subject: are + taken."]];
+var store={};
+function save(){try{localStorage.setItem("tb",JSON.stringify(store))}catch(e){}}
+try{store=JSON.parse(localStorage.getItem("tb")||"{}")}catch(e){store={}}
+function list(id,items,pre){var ol=$(id);items.forEach(function(t,i){var k=pre+i,li=document.createElement("li"),lb=document.createElement("label"),cb=document.createElement("input");cb.type="checkbox";cb.id=k;cb.checked=!!store[k];cb.onchange=function(){store[k]=cb.checked;save();ready()};var sp=document.createElement("span");sp.textContent=t;lb.appendChild(cb);lb.appendChild(sp);li.appendChild(lb);ol.appendChild(li)})}
+list("#steps",STEPS,"s");list("#check",CHECK,"c");
+
+var right=0,answered=0;
+Q.forEach(function(q,qi){var d=document.createElement("div");d.className="q";var p=document.createElement("p");p.textContent=q[0];var o=document.createElement("div");o.className="opts";var fb=document.createElement("div");fb.className="fb";var done=false;
+q[1].forEach(function(t,i){var b=document.createElement("button");b.className="opt";b.textContent=t;b.onclick=function(){if(done)return;done=true;answered++;if(i===q[2]){b.classList.add("right");right++;fb.textContent="Correct. "+q[3]}else{b.classList.add("wrong");o.children[q[2]].classList.add("right");fb.textContent="Not quite. "+q[3]}$("#score").textContent="Score: "+right+" / "+Q.length+(answered===Q.length?(right===Q.length?" — well done!":" — review the notes and try again."):"")};o.appendChild(b)});
+d.appendChild(p);d.appendChild(o);d.appendChild(fb);$("#quiz").appendChild(d)});
+
+var BE=/\b(is|are|was|were|be|been|being)\s+(\w+\s+)?\w+(ed|en|wn|nt|lt|ht|ne|de|pt)\b/i;
+function has(v){return v.trim().length>0}
+function update(){
+ var n=$("#name").value,l=$("#loc").value,s=$("#slogan").value,d=$("#desc").value;
+ $("#pName").textContent=n||"Your destination";$("#pSlogan").textContent=s||"Your slogan";$("#pLoc").textContent=l;$("#pDesc").textContent=d;
+ var facts=$$(".fact").map(function(e){return e.value}).filter(has);
+ $("#pFacts").innerHTML="";facts.forEach(function(f){var li=document.createElement("li");li.textContent=f;$("#pFacts").appendChild(li)});
+ var okP=0;$("#pPas").innerHTML="";
+ $$(".pas").forEach(function(e,i){var t=$$('[data-p="'+i+'"]')[0],v=e.value.trim();
+  if(!v){t.className="tag no";t.textContent="not checked";return}
+  var ok=BE.test(v);t.className="tag "+(ok?"ok":"no");t.textContent=ok?"pattern found":"check be + past participle";
+  if(ok)okP++;var li=document.createElement("li");li.textContent=v;$("#pPas").appendChild(li)});
+ $("#pSrc").textContent=$("#src").value.split("\n").filter(has).join(" | ");
+ auto("c0",has(n)&&has(l));auto("c1",facts.length>=3);auto("c2",okP>=3);auto("c5",$("#src").value.split("\n").filter(has).length>=1);
+ store.f={n:n,l:l,s:s,d:d,fa:$$(".fact").map(function(e){return e.value}),pa:$$(".pas").map(function(e){return e.value}),src:$("#src").value};save();ready();
+}
+function auto(id,on){var c=$("#"+id);if(on&&!c.checked){c.checked=true;store[id]=true}}
+function ready(){var all=CHECK.every(function(_,i){return $("#c"+i).checked});$("#ready").textContent=all?"Everything is ready. Submit your Canva link or PDF.":""}
+$$("input[type=text],textarea").forEach(function(e){e.addEventListener("input",update)});
+if(store.f){var f=store.f;$("#name").value=f.n||"";$("#loc").value=f.l||"";$("#slogan").value=f.s||"";$("#desc").value=f.d||"";$("#src").value=f.src||"";$$(".fact").forEach(function(e,i){e.value=(f.fa||[])[i]||""});$$(".pas").forEach(function(e,i){e.value=(f.pa||[])[i]||""})}
+update();
+$("#copy").onclick=function(){
+ var t=[$("#pName").textContent,$("#pSlogan").textContent,$("#pLoc").textContent,"",$("#pDesc").textContent,"","Highlights:"].concat($$("#pFacts li").map(function(x){return "- "+x.textContent}),["","Did you know?"],$$("#pPas li").map(function(x){return "- "+x.textContent}),["","Sources: "+$("#pSrc").textContent]).join("\n");
+ var msg=function(m){$("#copied").textContent=m};
+ try{navigator.clipboard.writeText(t).then(function(){msg("Copied. Paste it into Canva.")},function(){msg("Copy blocked. Select the text in the preview instead.")})}catch(e){msg("Copy blocked. Select the text in the preview instead.")}
+};
+$("#reset").onclick=function(){if(!confirm("Clear everything you wrote?"))return;store={};save();location.reload()};
+</script>
+</body>
+</html>
